@@ -814,102 +814,133 @@
             opacity: 0.7;
         }
 
-        /* full cv header block */
-        .cv-header {
-            padding: 20px 0 10px;
+        /* ----- NEW CONTACT PAGE STYLES (exciting version) ----- */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 40px;
+            align-items: start;
         }
-        .cv-header h2.cv-name {
-            font-family: 'Fraunces', serif;
-            font-size: 1.6rem;
-            font-weight: 600;
-            color: var(--ink);
-            text-transform: none;
-            letter-spacing: 0;
-            margin-bottom: 4px;
+        @media (max-width: 760px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
         }
-        .cv-header .cv-role {
-            font-family: 'Spline Sans Mono', monospace;
-            font-size: .75rem;
-            text-transform: uppercase;
-            letter-spacing: .08em;
-            color: var(--cinnabar);
-            margin-bottom: 10px;
-        }
-        .cv-header .cv-contactline {
-            font-family: 'Spline Sans Mono', monospace;
-            font-size: .78rem;
-            color: var(--ink-soft);
+        .contact-info {
             display: flex;
-            flex-wrap: wrap;
-            gap: 6px 10px;
+            flex-direction: column;
+            gap: 24px;
         }
-        .cv-header .cv-contactline span:not(:last-child)::after {
-            content: "·";
-            margin-left: 10px;
-            color: var(--line);
+        .contact-item {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
         }
-        .cv-block h3.cv-role-title {
-            font-family: 'Fraunces', serif;
-            font-size: 1.05rem;
-            font-weight: 600;
-            margin-top: 18px;
+        .contact-icon {
+            font-size: 1.5rem;
+            line-height: 1.2;
+            width: 32px;
+            text-align: center;
+            color: var(--cinnabar);
         }
-        .cv-block .cv-role-meta {
+        .contact-label {
             font-family: 'Spline Sans Mono', monospace;
-            font-size: .68rem;
+            font-size: .6rem;
+            letter-spacing: .1em;
             text-transform: uppercase;
-            letter-spacing: .08em;
             color: var(--ink-soft);
-            margin: 3px 0 10px;
+            margin-bottom: 2px;
         }
-        .cv-block ul.cv-bullets {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 8px 0;
+        .contact-info a {
+            border-bottom: 1px solid transparent;
+            transition: border-color .2s;
         }
-        .cv-block ul.cv-bullets li {
+        .contact-info a:hover {
+            border-bottom-color: var(--cinnabar);
+            color: var(--cinnabar);
+        }
+
+        .mini-map {
             position: relative;
-            padding: 5px 0 5px 20px;
-            font-size: .92rem;
-            color: var(--ink-soft);
-        }
-        .cv-block ul.cv-bullets li::before {
-            content: "—";
-            position: absolute;
-            left: 0;
-            color: var(--cinnabar);
-        }
-        .cv-skill-group {
-            margin-bottom: 14px;
-        }
-        .cv-skill-group .cv-skill-label {
-            font-family: 'Spline Sans Mono', monospace;
-            font-size: .68rem;
-            text-transform: uppercase;
-            letter-spacing: .08em;
-            color: var(--cinnabar);
-            margin-bottom: 4px;
-            display: block;
-        }
-        .cv-skill-group .cv-skill-text {
-            font-size: .9rem;
-            color: var(--ink-soft);
-        }
-        .focus-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
             margin-top: 8px;
-        }
-        .focus-tags span {
-            font-family: 'Spline Sans Mono', monospace;
-            font-size: .68rem;
-            letter-spacing: .05em;
-            text-transform: uppercase;
-            color: var(--archive-green);
-            border: 1px solid var(--archive-green);
-            padding: 4px 10px;
+            border: 1px solid var(--line);
             border-radius: 4px;
+            overflow: hidden;
+            background: var(--paper-raised);
+        }
+        .mini-map .map-caption {
+            position: absolute;
+            bottom: 8px;
+            right: 10px;
+            font-family: 'Spline Sans Mono', monospace;
+            font-size: .55rem;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: var(--ink-soft);
+            background: var(--paper);
+            padding: 2px 8px;
+            border-radius: 2px;
+        }
+
+        .contact-form-wrapper {
+            background: var(--paper-raised);
+            padding: 28px 30px;
+            border: 1px solid var(--line);
+            border-radius: 4px;
+        }
+        .form-group {
+            margin-bottom: 16px;
+        }
+        .form-group label {
+            display: block;
+            font-family: 'Spline Sans Mono', monospace;
+            font-size: .7rem;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: var(--ink-soft);
+            margin-bottom: 4px;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px 12px;
+            background: var(--paper);
+            border: 1px solid var(--line);
+            border-radius: 4px;
+            font-family: 'Karla', sans-serif;
+            font-size: .9rem;
+            color: var(--ink);
+            transition: border-color .2s;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--cinnabar);
+        }
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: var(--ink-soft);
+            opacity: 0.7;
+        }
+
+        .btn-primary {
+            background: var(--cinnabar);
+            border-color: var(--cinnabar);
+            color: var(--paper);
+            padding: 12px 28px;
+            font-weight: 600;
+            border-radius: 4px;
+            transition: background .2s, transform .1s;
+        }
+        .btn-primary:hover {
+            background: var(--ink);
+            border-color: var(--ink);
+            color: var(--paper);
+            transform: scale(1.02);
+        }
+        .btn-primary:active {
+            transform: scale(0.98);
         }
     </style>
 </head>
@@ -1519,76 +1550,35 @@
                 </header>
                 <a class="back-link" href="#/cv">← Back to CV</a>
 
-                <section class="block cv-header">
-                    <h2 class="cv-name">Se Taylor</h2>
-                    <div class="cv-role">Geopolitical Researcher · Remote</div>
-                    <div class="cv-contactline">
-                        <span>South Africa (remote)</span>
-                        <span>+27 61 813 1717</span>
-                        <span>se@setaylorr.com</span>
-                        <span>linkedin.com/in/se-taylor-32a366285</span>
-                    </div>
-                </section>
-
-                <section class="block cv-block">
-                    <h2>Profile</h2>
-                    <p class="lede" style="font-size:1rem;">Geopolitical researcher with a background in International Relations and experience conducting independent investigative research into government transparency, international diplomacy, and conflict dynamics. Skilled at reconstructing complex event sequences from fragmented and multilingual sources, applying open-source intelligence methods, and producing evidence-based analysis. Particular focus on Africa-China relations, governance and accountability, and the strategic dynamics shaping the Global South.</p>
-                </section>
-
-                <section class="block cv-block">
+                <section class="block">
                     <h2>Experience</h2>
-
-                    <h3 class="cv-role-title">Independent Investigative Research Project</h3>
-                    <div class="cv-role-meta">UK Cabinet Office — Freedom of Information Tribunal matter · 2023 – present</div>
-                    <ul class="cv-bullets">
-                        <li>Conducted a three-year and ongoing Freedom of Information (FOI) investigation involving the UK Cabinet Office, seeking disclosure of government records relating to a high-level diplomatic engagement during an ongoing armed conflict.</li>
-                        <li>Independently navigated all three stages of the statutory process — Internal Review, the Information Commissioner's Office, and the First-Tier Tribunal, drafting all legal submissions, procedural correspondence, and grounds of appeal submitted to two public institutions without legal representation.</li>
-                        <li>Evaluated legal and procedural questions relating to government transparency, statutory disclosure obligations, and exemptions under the UK Freedom of Information Act 2000.</li>
-                    </ul>
-
-                    <h3 class="cv-role-title">Geopolitics Research Assistant</h3>
-                    <div class="cv-role-meta">Listening to the Other Side · 2023 – 2025</div>
-                    <ul class="cv-bullets">
-                        <li>Reconstructed detailed diplomatic timelines by identifying, verifying, and synthesising fragmented information from multilingual media, official statements, open-source intelligence, and government publications.</li>
-                        <li>Conducted over two years of geopolitical research supporting investigative work and ten editorial projects on international diplomacy, armed conflict, and under-reported political developments spanning several decades.</li>
-                        <li>Tracked bilateral and multilateral diplomatic developments, identifying geopolitical, security, and foreign policy trends affecting international relations.</li>
-                        <li>Produced and narrated analytical briefings interpreting the public statements of world leaders, including President Vladimir Putin, for research and public understanding.</li>
-                    </ul>
+                    <div class="cvrow"><span class="k">2025 – Present</span><span class="v"><strong>Founder, Bridge Africa China</strong><span class="sub">Building a consulting and intelligence platform on Africa China relations. Developing foundational research capacity, network building, and Mandarin language study.</span></span></div>
+                    <div class="cvrow"><span class="k">2023 – Present</span><span class="v"><strong>Administrator, Ntuli Foundation</strong><span class="sub">Board coordination, professional communications, and strategic drafting for a non-profit focused on institutional development.</span></span></div>
+                    <div class="cvrow"><span class="k">2023 – 2025</span><span class="v"><strong>Research Assistant, Listening to the Other Side</strong><span class="sub">Multilingual OSINT and chronology reconstruction of Russia Ukraine diplomatic negotiations. Produced interactive timelines and analytical reports for media and academic use.</span></span></div>
                 </section>
 
-                <section class="block cv-block">
+                <section class="block">
+                    <h2>Casework</h2>
+                    <div class="cvrow"><span class="k">2023 – Present</span><span class="v"><strong>FOIA Request &amp; Tribunal Appeal</strong><span class="sub">Self‑represented progression through internal review, ICO complaint, and First‑tier Tribunal. Engaged with exemptions including ss.23, 24, 26, 27, 35, 38, and 40 FOIA.</span></span></div>
+                </section>
+
+                <section class="block">
                     <h2>Education</h2>
-                    <h3 class="cv-role-title">BA International Relations</h3>
-                    <div class="cv-role-meta">Stellenbosch University · 2019 – 2022</div>
-                    <p class="small muted">Focus: International security, conflict analysis, governance, and Africa-China relations.</p>
+                    <div class="cvrow"><span class="k">2019 – 2023</span><span class="v"><strong>BA International Relations, Stellenbosch University</strong><span class="sub">Focus on institutional accountability, East‑West geopolitics, and international law.</span></span></div>
+                    <div class="cvrow"><span class="k">Ongoing</span><span class="v"><strong>Self‑directed Study</strong><span class="sub">Mandarin Chinese, China‑Africa economic history, and information rights law.</span></span></div>
                 </section>
 
-                <section class="block cv-block">
-                    <h2>Skills</h2>
-                    <div class="cv-skill-group">
-                        <span class="cv-skill-label">Research &amp; intelligence</span>
-                        <span class="cv-skill-text">Open-source intelligence (OSINT); source verification; chronology reconstruction and conflict tracking; multilingual research synthesis; comparative analysis.</span>
-                    </div>
-                    <div class="cv-skill-group">
-                        <span class="cv-skill-label">Documents &amp; disclosure</span>
-                        <span class="cv-skill-text">Government document analysis; Freedom of Information requests, appeals, and tribunal submissions; procedural correspondence with public bodies.</span>
-                    </div>
-                    <div class="cv-skill-group">
-                        <span class="cv-skill-label">Languages</span>
-                        <span class="cv-skill-text">English (native), isiZulu (native), Mandarin (study in progress).</span>
-                    </div>
-                </section>
-
-                <section class="block cv-block">
-                    <h2>Areas of focus</h2>
-                    <div class="focus-tags">
-                        <span>Africa–China relations</span>
-                        <span>Geopolitical analysis</span>
-                        <span>International security</span>
-                        <span>OSINT</span>
-                        <span>Government transparency</span>
-                        <span>Policy analysis</span>
-                        <span>Governance in the Global South</span>
+                <section class="block">
+                    <h2>Skills &amp; Expertise</h2>
+                    <div class="skill-grid">
+                        <div class="skill-item">OSINT &amp; Open Source Research</div>
+                        <div class="skill-item">Legal Research (FOIA / GDPR)</div>
+                        <div class="skill-item">Political Risk Analysis</div>
+                        <div class="skill-item">Multilingual Sourcing (RU, UK, FR)</div>
+                        <div class="skill-item">Chronology Construction</div>
+                        <div class="skill-item">Administrative Law</div>
+                        <div class="skill-item">Data Verification &amp; Cross‑referencing</div>
+                        <div class="skill-item">Mandarin Chinese (Beginner)</div>
                     </div>
                 </section>
             </div>
@@ -1653,22 +1643,102 @@
                 </section>
             </div>
 
-            <!-- ===== CONTACT ===== -->
+            <!-- ===== CONTACT (new exciting version) ===== -->
             <div class="page" id="page-contact">
                 <header class="pagehead">
                     <div>
-                        <div class="fileref">File E/02 / Contact</div>
-                        <h1>Contact</h1>
+                        <div class="fileref">File E/02 / Connect</div>
+                        <h1>Let's talk</h1>
                     </div>
-                    <span class="stamp">Reach<br />out</span>
+                    <span class="stamp" style="transform: rotate(4deg);">Available<br />now</span>
                 </header>
 
-                <section class="block">
-                    <p class="lede">Open to research roles, commissions and collaboration in geopolitical analysis, information rights and Africa China work.</p>
-                    <div style="margin-top:26px">
-                        <div class="contactline"><span class="k">Email</span><span>se@setaylorr.com</span></div>
-                        <div class="contactline"><span class="k">Location</span><span>Johannesburg, South Africa. Remote worldwide.</span></div>
-                        <div class="contactline"><span class="k">Casework</span><span>Public record via WhatDoTheyKnow</span></div>
+                <section class="block" style="padding-bottom: 10px;">
+                    <p class="lede" style="max-width: 100%;">
+                        Open to research collaborations, commissions, and speaking engagements.  
+                        Drop me a message – I reply within 48 hours.
+                    </p>
+                </section>
+
+                <section class="block" style="border-bottom: none; padding-top: 10px;">
+                    <div class="contact-grid">
+                        <!-- left column: info & map -->
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <span class="contact-icon">✉</span>
+                                <div>
+                                    <div class="contact-label">Email</div>
+                                    <a href="mailto:se@setaylorr.com">se@setaylorr.com</a>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <span class="contact-icon">📞</span>
+                                <div>
+                                    <div class="contact-label">Phone</div>
+                                    <a href="tel:+27618131717">+27 61 813 1717</a>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <span class="contact-icon">📍</span>
+                                <div>
+                                    <div class="contact-label">Location</div>
+                                    <span>Johannesburg, South Africa</span>
+                                    <span class="muted small" style="display:block; margin-top:2px;">Remote worldwide</span>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <span class="contact-icon">🔗</span>
+                                <div>
+                                    <div class="contact-label">Professional</div>
+                                    <div style="display:flex; gap:16px; flex-wrap:wrap; margin-top:4px;">
+                                        <a href="#" style="border-bottom:1px solid var(--line);">LinkedIn</a>
+                                        <a href="#" style="border-bottom:1px solid var(--line);">Twitter</a>
+                                        <a href="#" style="border-bottom:1px solid var(--line);">GitHub</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- mini map -->
+                            <div class="mini-map" role="img" aria-label="Stylised location map of Johannesburg">
+                                <svg viewBox="0 0 200 120" style="width:100%; height:auto;">
+                                    <rect width="200" height="120" fill="var(--paper-raised)" rx="4" />
+                                    <circle cx="100" cy="60" r="8" fill="var(--cinnabar)" opacity="0.8" />
+                                    <circle cx="100" cy="60" r="14" fill="none" stroke="var(--cinnabar)" stroke-width="1.5" stroke-dasharray="3 3" />
+                                    <text x="82" y="76" font-family="'Spline Sans Mono', monospace" font-size="8" fill="var(--ink)">JHB</text>
+                                    <path d="M20,100 L180,100" stroke="var(--line)" stroke-width="1" />
+                                    <path d="M100,20 L100,110" stroke="var(--line)" stroke-width="1" />
+                                </svg>
+                                <span class="map-caption">Johannesburg · Global</span>
+                            </div>
+                        </div>
+
+                        <!-- right column: contact form -->
+                        <div class="contact-form-wrapper">
+                            <h3 style="font-family:'Fraunces',serif; font-weight:560; font-size:1.3rem; margin-bottom:4px;">Send a message</h3>
+                            <p class="muted small" style="margin-bottom:18px;">I'll get back to you within two working days.</p>
+                            <form id="contactForm" action="#" method="POST">
+                                <div class="form-group">
+                                    <label for="contactName">Your name</label>
+                                    <input type="text" id="contactName" placeholder="e.g. Amina Diallo" required />
+                                </div>
+                                <div class="form-group">
+                                    <label for="contactEmail">Email address</label>
+                                    <input type="email" id="contactEmail" placeholder="you@example.com" required />
+                                </div>
+                                <div class="form-group">
+                                    <label for="contactSubject">Subject</label>
+                                    <input type="text" id="contactSubject" placeholder="Collaboration / Speaking / Research" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="contactMessage">Message</label>
+                                    <textarea id="contactMessage" rows="5" placeholder="Tell me about your project, idea, or question..." required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Send message →</button>
+                            </form>
+                            <p class="small muted" style="margin-top:12px; font-family:'Spline Sans Mono',monospace; font-size:.65rem;">
+                                ⚡ No tracking, no spam – your data stays private.
+                            </p>
+                        </div>
                     </div>
                 </section>
             </div>
@@ -1734,6 +1804,43 @@
                 empty.style.display = shown ? "none" : "block";
             });
         })();
+
+        // ----- Contact form – mailto fallback with validation -----
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('contactForm');
+            if (!form) return;
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const name = document.getElementById('contactName').value.trim();
+                const email = document.getElementById('contactEmail').value.trim();
+                const subject = document.getElementById('contactSubject').value.trim() || 'New contact message';
+                const message = document.getElementById('contactMessage').value.trim();
+
+                if (!name || !email || !message) {
+                    alert('Please fill in all required fields (name, email, and message).');
+                    return;
+                }
+
+                // Build mailto link
+                const body = `Name: ${name}%0AEmail: ${email}%0A%0A${message.replace(/\n/g, '%0A')}`;
+                const mailtoLink = `mailto:se@setaylorr.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+
+                // Open default mail client
+                window.location.href = mailtoLink;
+
+                // Optional: show a thank-you message
+                const btn = form.querySelector('button[type="submit"]');
+                const originalText = btn.textContent;
+                btn.textContent = '✓ Sent!';
+                btn.disabled = true;
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.disabled = false;
+                }, 3000);
+            });
+        });
     </script>
 </body>
 </html>

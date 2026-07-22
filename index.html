@@ -814,7 +814,7 @@
             opacity: 0.7;
         }
 
-        /* ----- CONTACT PAGE – no form, no location, full-width clean info ----- */
+        /* ----- CONTACT PAGE – no form, no location ----- */
         .contact-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -886,6 +886,82 @@
         }
         .contact-cta .btn {
             margin-top: 0;
+        }
+
+        /* ----- DYNAMIC "NOW" SECTION ----- */
+        .now-block {
+            background: var(--paper-raised);
+            border: 1px solid var(--line);
+            border-radius: 4px;
+            padding: 32px 36px;
+            position: relative;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .now-block:hover {
+            border-color: var(--cinnabar);
+            box-shadow: 0 4px 20px rgba(150, 73, 31, 0.06);
+        }
+        .now-block .now-quote {
+            font-family: 'Fraunces', serif;
+            font-size: 1.6rem;
+            font-weight: 520;
+            line-height: 1.35;
+            margin-bottom: 16px;
+            letter-spacing: -0.01em;
+        }
+        .now-block .now-quote .highlight {
+            color: var(--cinnabar);
+        }
+        .now-block .now-quote .accent-char {
+            font-family: 'Spline Sans Mono', monospace;
+            color: var(--cinnabar);
+            font-size: 2.2rem;
+            font-weight: 400;
+            opacity: 0.6;
+            margin-right: 4px;
+        }
+        .now-block .now-body {
+            font-size: 1.05rem;
+            color: var(--ink-soft);
+            max-width: 620px;
+            line-height: 1.6;
+        }
+        .now-block .now-footer {
+            margin-top: 18px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .now-block .now-footer .badge {
+            font-family: 'Spline Sans Mono', monospace;
+            font-size: .6rem;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--archive-green);
+            border: 1px solid var(--archive-green);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+        .now-block .now-footer .attribution {
+            font-family: 'Spline Sans Mono', monospace;
+            font-size: .7rem;
+            color: var(--ink-soft);
+            letter-spacing: .02em;
+        }
+        .now-block .now-footer .attribution a {
+            color: var(--cinnabar);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+        .now-block .now-footer .attribution a:hover {
+            opacity: 0.7;
+        }
+        [data-theme="dark"] .now-block {
+            border-color: var(--line);
+        }
+        [data-theme="dark"] .now-block:hover {
+            border-color: var(--cinnabar);
         }
     </style>
 </head>
@@ -959,9 +1035,22 @@
                     </div>
                 </section>
 
-                <section class="block">
-                    <h2>Now</h2>
-                    <p class="lede">Building Bridge Africa China, a research and intelligence platform connecting African and Chinese institutions across policy, trade and diplomacy. Studying Mandarin and China Africa economic history alongside active casework.</p>
+                <!-- ===== NOW – REVAMPED & DYNAMIC ===== -->
+                <section class="block" style="border-bottom: 1px solid var(--line);">
+                   
+                    <div class="now-block">
+                        <div class="now-quote">
+                            <span class="accent-char">“</span>
+                            The world is shaped not only by those who hold power,but by those who <span class="highlight">understand</span> it.
+                        </div>
+                        <div class="now-body">
+                            Research is the discipline of uncovering how institutions, ideas and interests shape political decisions long before their consequences become visible.
+                        </div>
+                        <div class="now-footer">
+                            <span class="badge">Knowledge is power</span>
+                            <span class="attribution">— <a href="#" onclick="event.preventDefault();">Francis Bacon</a></span>
+                        </div>
+                    </div>
                 </section>
             </div>
 
@@ -1588,27 +1677,22 @@
             </div>
 
             <!-- ============================================================ -->
-            <!-- CONTACT PAGE – NO FORM, NO LOCATION -->
+            <!-- CONTACT PAGE – BUTTON ONLY IN CTA -->
             <!-- ============================================================ -->
             <div class="page" id="page-contact">
                 <header class="pagehead">
                     <div>
-                        <div class="fileref">File / Connect</div>
+                        <div class="fileref">File E/02 / Connect</div>
                         <h1>Get in touch</h1>
                     </div>
                     <span class="stamp" style="transform: rotate(4deg);">Available</span>
                 </header>
 
-                <section class="block" style="padding-bottom: 10px;">
-                    <p class="lede" style="max-width: 100%;">
-                        Open to research collaborations, commissions, and speaking engagements.
-                        I reply within 48 hours.
-                    </p>
-                </section>
+               
 
                 <section class="block" style="border-bottom: none; padding-top: 10px;">
                     <div class="contact-grid">
-                        <!-- Column 1 -->
+                        <!-- Column 1: Email & Phone -->
                         <div>
                             <div class="contact-item">
                                 <span class="contact-icon">✉</span>
@@ -1625,7 +1709,8 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Column 2 -->
+
+                        <!-- Column 2: Professional, Time Zone, Casework -->
                         <div>
                             <div class="contact-item">
                                 <span class="contact-icon">🔗</span>
@@ -1634,11 +1719,11 @@
                                     <div class="social-links">
                                         <a href="javascript:void(0)" onclick="window.open('about:blank', '_blank').location.href='https://linkedin.com/in/se-taylor-32a366285'; return false;">LinkedIn</a>
                                         <a href="javascript:void(0)" onclick="window.open('about:blank', '_blank').location.href='https://twitter.com/yourhandle'; return false;">Twitter</a>
-                        
+                                        <a href="javascript:void(0)" onclick="window.open('about:blank', '_blank').location.href='https://github.com/yourusername'; return false;">GitHub</a>
                                     </div>
                                 </div>
                             </div>
-                        
+
                             <div class="contact-item">
                                 <span class="contact-icon">🕐</span>
                                 <div>
@@ -1647,14 +1732,15 @@
                                     <span class="muted small" style="display:block; margin-top:2px;">Flexible for global collaboration</span>
                                 </div>
                             </div>
+
+                           
+                            </div>
                         </div>
                     </div>
 
+                    <!-- ONLY THE BUTTON – NO EXTRA TEXT -->
                     <div class="contact-cta">
-                        <a href="mailto:se@setaylorr.com" class="btn">If you're intrigued, please please say hi..</a>
-                        <span style="display: block; margin-top: 10px; font-size: .75rem; color: var(--ink-soft); font-family: 'Spline Sans Mono', monospace;">
-                           
-                        </span>
+                        <a href="mailto:se@setaylorr.com" class="btn">If you're intirgued, come say hi.✦</a>
                     </div>
                 </section>
             </div>

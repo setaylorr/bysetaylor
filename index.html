@@ -814,28 +814,28 @@
             opacity: 0.7;
         }
 
-        /* ----- NEW CONTACT PAGE STYLES (exciting version) ----- */
+        /* ----- CONTACT PAGE – no form, no location, full-width clean info ----- */
         .contact-grid {
             display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 40px;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px 48px;
             align-items: start;
         }
-        @media (max-width: 760px) {
+        @media (max-width: 700px) {
             .contact-grid {
                 grid-template-columns: 1fr;
-                gap: 30px;
+                gap: 24px;
             }
-        }
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
         }
         .contact-item {
             display: flex;
             gap: 16px;
             align-items: flex-start;
+            padding: 12px 0;
+            border-bottom: 1px dotted var(--line);
+        }
+        .contact-item:last-of-type {
+            border-bottom: none;
         }
         .contact-icon {
             font-size: 1.5rem;
@@ -843,6 +843,7 @@
             width: 32px;
             text-align: center;
             color: var(--cinnabar);
+            flex-shrink: 0;
         }
         .contact-label {
             font-family: 'Spline Sans Mono', monospace;
@@ -852,95 +853,39 @@
             color: var(--ink-soft);
             margin-bottom: 2px;
         }
-        .contact-info a {
+        .contact-item a {
             border-bottom: 1px solid transparent;
             transition: border-color .2s;
         }
-        .contact-info a:hover {
+        .contact-item a:hover {
+            border-bottom-color: var(--cinnabar);
+            color: var(--cinnabar);
+        }
+        .social-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 4px;
+        }
+        .social-links a {
+            font-family: 'Spline Sans Mono', monospace;
+            font-size: .75rem;
+            letter-spacing: .04em;
+            border-bottom: 1px solid transparent;
+            transition: border-color .2s;
+        }
+        .social-links a:hover {
             border-bottom-color: var(--cinnabar);
             color: var(--cinnabar);
         }
 
-        .mini-map {
-            position: relative;
-            margin-top: 8px;
-            border: 1px solid var(--line);
-            border-radius: 4px;
-            overflow: hidden;
-            background: var(--paper-raised);
+        .contact-cta {
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid var(--line);
         }
-        .mini-map .map-caption {
-            position: absolute;
-            bottom: 8px;
-            right: 10px;
-            font-family: 'Spline Sans Mono', monospace;
-            font-size: .55rem;
-            letter-spacing: .08em;
-            text-transform: uppercase;
-            color: var(--ink-soft);
-            background: var(--paper);
-            padding: 2px 8px;
-            border-radius: 2px;
-        }
-
-        .contact-form-wrapper {
-            background: var(--paper-raised);
-            padding: 28px 30px;
-            border: 1px solid var(--line);
-            border-radius: 4px;
-        }
-        .form-group {
-            margin-bottom: 16px;
-        }
-        .form-group label {
-            display: block;
-            font-family: 'Spline Sans Mono', monospace;
-            font-size: .7rem;
-            letter-spacing: .08em;
-            text-transform: uppercase;
-            color: var(--ink-soft);
-            margin-bottom: 4px;
-        }
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 10px 12px;
-            background: var(--paper);
-            border: 1px solid var(--line);
-            border-radius: 4px;
-            font-family: 'Karla', sans-serif;
-            font-size: .9rem;
-            color: var(--ink);
-            transition: border-color .2s;
-        }
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--cinnabar);
-        }
-        .form-group input::placeholder,
-        .form-group textarea::placeholder {
-            color: var(--ink-soft);
-            opacity: 0.7;
-        }
-
-        .btn-primary {
-            background: var(--cinnabar);
-            border-color: var(--cinnabar);
-            color: var(--paper);
-            padding: 12px 28px;
-            font-weight: 600;
-            border-radius: 4px;
-            transition: background .2s, transform .1s;
-        }
-        .btn-primary:hover {
-            background: var(--ink);
-            border-color: var(--ink);
-            color: var(--paper);
-            transform: scale(1.02);
-        }
-        .btn-primary:active {
-            transform: scale(0.98);
+        .contact-cta .btn {
+            margin-top: 0;
         }
     </style>
 </head>
@@ -972,7 +917,6 @@
             <!-- ===== HOME ===== -->
             <div class="page" id="page-home">
                 <header class="hero">
-                  
                     <h1>studying<br />power,<br /><span class="accent">people</span><br />and conflicts</h1>
                     <p class="sub">Independent researcher working on institutional transparency, open source investigation and the political economy of Africa China relations. Based in Johannesburg.</p>
                     <div class="hero-meta">
@@ -1584,7 +1528,7 @@
             </div>
 
             <!-- ============================================================ -->
-            <!-- FULL RECOMMENDATIONS PAGE – now solely Edward Druce's letter -->
+            <!-- FULL RECOMMENDATIONS PAGE – Edward Druce's letter -->
             <!-- ============================================================ -->
             <div class="page" id="page-full-recommendations">
                 <header class="pagehead">
@@ -1599,11 +1543,11 @@
                 <section class="block letter-body">
                     <p>
                         In July 2023, I posted a job advert for a remote geopolitical research assistant, to help with a
-                        Substack covering diplomacy (<a href="https://edwardmdruce.substack.com/" target="_blank">edwardmdruce.substack.com</a>) that I’d begun writing.
+                        Substack covering diplomacy (<a href="https://edwardmdruce.substack.com/" target="_blank">edwardmdruce.substack.com</a>) that I'd begun writing.
                         The advert received over 900 applicants in the space of a few weeks
                         (<a href="https://edwardmdruce.substack.com/i/135764408/thoughts-from-around-the-world" target="_blank">read the post</a>), from all over the world.
                         I whittled a shortlist down to 12 people and, from that, picked one person for the role: <strong>Se Taylor</strong>.
-                        It had been Se’s first ever job interview.
+                        It had been Se's first ever job interview.
                     </p>
                     <p>
                         Over the past 20 months, Se has been instrumental in helping:
@@ -1627,13 +1571,13 @@
                     </ul>
                     <p>
                         Se is remarkably talented at finding obscure and hard-to-obtain information on the web. Se
-                        considers herself very much a “detective” in the pursuit of such information – which is fitting.
+                        considers herself very much a "detective" in the pursuit of such information – which is fitting.
                         Se has developed extremely novel ways of navigating foreign language media, that provides a very
                         different (often much more accurate) picture of world events – which she came up with entirely
                         independently.
                     </p>
                     <p>
-                        If you need a research “detective” to assist you in scouring the web, for little-known gems,
+                        If you need a research "detective" to assist you in scouring the web, for little-known gems,
                         I recommend Se highly.
                     </p>
                     <div class="signature">
@@ -1643,27 +1587,29 @@
                 </section>
             </div>
 
-            <!-- ===== CONTACT (new exciting version) ===== -->
+            <!-- ============================================================ -->
+            <!-- CONTACT PAGE – NO FORM, NO LOCATION -->
+            <!-- ============================================================ -->
             <div class="page" id="page-contact">
                 <header class="pagehead">
                     <div>
                         <div class="fileref">File E/02 / Connect</div>
-                        <h1>Let's talk</h1>
+                        <h1>Get in touch</h1>
                     </div>
-                    <span class="stamp" style="transform: rotate(4deg);">Available<br />now</span>
+                    <span class="stamp" style="transform: rotate(4deg);">Available</span>
                 </header>
 
                 <section class="block" style="padding-bottom: 10px;">
                     <p class="lede" style="max-width: 100%;">
-                        Open to research collaborations, commissions, and speaking engagements.  
-                        Drop me a message – I reply within 48 hours.
+                        Open to research collaborations, commissions, and speaking engagements.
+                        I reply within 48 hours.
                     </p>
                 </section>
 
                 <section class="block" style="border-bottom: none; padding-top: 10px;">
                     <div class="contact-grid">
-                        <!-- left column: info & map -->
-                        <div class="contact-info">
+                        <!-- Column 1 -->
+                        <div>
                             <div class="contact-item">
                                 <span class="contact-icon">✉</span>
                                 <div>
@@ -1678,79 +1624,43 @@
                                     <a href="tel:+27618131717">+27 61 813 1717</a>
                                 </div>
                             </div>
+                        </div>
+                        <!-- Column 2 -->
+                        <div>
                             <div class="contact-item">
-                                <span class="contact-icon">📍</span>
+                                <span class="contact-icon">🔗</span>
                                 <div>
-                                    <div class="contact-label">Location</div>
-                                    <span>Johannesburg, South Africa</span>
-                                    <span class="muted small" style="display:block; margin-top:2px;">Remote worldwide</span>
+                                    <div class="contact-label">Professional</div>
+                                    <div class="social-links">
+                                        <a href="javascript:void(0)" onclick="window.open('about:blank', '_blank').location.href='https://linkedin.com/in/se-taylor-32a366285'; return false;">LinkedIn</a>
+                                        <a href="javascript:void(0)" onclick="window.open('about:blank', '_blank').location.href='https://twitter.com/yourhandle'; return false;">Twitter</a>
+                                        <a href="javascript:void(0)" onclick="window.open('about:blank', '_blank').location.href='https://github.com/yourusername'; return false;">GitHub</a>
+                                    </div>
                                 </div>
                             </div>
                             <div class="contact-item">
-  <div class="contact-item">
-    <span class="contact-icon">🔗</span>
-    <div>
-        <div class="contact-label">Professional</div>
-        <div style="display:flex; gap:16px; flex-wrap:wrap; margin-top:4px;">
-            <a href="javascript:void(0)" 
-               onclick="window.open('about:blank', '_blank').location.href='https://linkedin.com/in/se-taylor-32a366285'; return false;" 
-               style="border-bottom:1px solid var(--line); cursor:pointer;">
-                LinkedIn
-            </a>
-            <a href="javascript:void(0)" 
-               onclick="window.open('about:blank', '_blank').location.href='https://twitter.com/yourhandle'; return false;" 
-               style="border-bottom:1px solid var(--line); cursor:pointer;">
-                Twitter
-            </a>
-            <a href="javascript:void(0)" 
-               onclick="window.open('about:blank', '_blank').location.href='https://github.com/yourusername'; return false;" 
-               style="border-bottom:1px solid var(--line); cursor:pointer;">
-                GitHub
-            </a>
-        </div>
-    </div>
-</div>
-                            <!-- mini map -->
-                            <div class="mini-map" role="img" aria-label="Stylised location map of Johannesburg">
-                                <svg viewBox="0 0 200 120" style="width:100%; height:auto;">
-                                    <rect width="200" height="120" fill="var(--paper-raised)" rx="4" />
-                                    <circle cx="100" cy="60" r="8" fill="var(--cinnabar)" opacity="0.8" />
-                                    <circle cx="100" cy="60" r="14" fill="none" stroke="var(--cinnabar)" stroke-width="1.5" stroke-dasharray="3 3" />
-                                    <text x="82" y="76" font-family="'Spline Sans Mono', monospace" font-size="8" fill="var(--ink)">JHB</text>
-                                    <path d="M20,100 L180,100" stroke="var(--line)" stroke-width="1" />
-                                    <path d="M100,20 L100,110" stroke="var(--line)" stroke-width="1" />
-                                </svg>
-                                <span class="map-caption">Johannesburg · Global</span>
+                                <span class="contact-icon">📂</span>
+                                <div>
+                                    <div class="contact-label">Casework</div>
+                                    <a href="javascript:void(0)" onclick="window.open('about:blank', '_blank').location.href='https://www.whatdotheyknow.com/user/se_taylor'; return false;">Public record via WhatDoTheyKnow</a>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <span class="contact-icon">🕐</span>
+                                <div>
+                                    <div class="contact-label">Time Zone</div>
+                                    <span>SAST (UTC+2)</span>
+                                    <span class="muted small" style="display:block; margin-top:2px;">Flexible for global collaboration</span>
+                                </div>
                             </div>
                         </div>
+                    </div>
 
-                        <!-- right column: contact form -->
-                        <div class="contact-form-wrapper">
-                            <h3 style="font-family:'Fraunces',serif; font-weight:560; font-size:1.3rem; margin-bottom:4px;">Send a message</h3>
-                            <p class="muted small" style="margin-bottom:18px;"></p>
-                            <form id="contactForm" action="#" method="POST">
-                                <div class="form-group">
-                                    <label for="contactName">Your name</label>
-                                    <input type="text" id="contactName" placeholder="e.g. Amina Diallo" required />
-                                </div>
-                                <div class="form-group">
-                                    <label for="contactEmail">Email address</label>
-                                    <input type="email" id="contactEmail" placeholder="you@example.com" required />
-                                </div>
-                                <div class="form-group">
-                                    <label for="contactSubject">Subject</label>
-                                    <input type="text" id="contactSubject" placeholder="Collaboration / Speaking / Research" />
-                                </div>
-                                <div class="form-group">
-                                    <label for="contactMessage">Message</label>
-                                    <textarea id="contactMessage" rows="5" placeholder="Tell me about your project, idea, or question..." required></textarea>
-                                </div>
-                                <button type="submit" class="btn btn-primary">Send message →</button>
-                            </form>
-                            <p class="small muted" style="margin-top:12px; font-family:'Spline Sans Mono',monospace; font-size:.65rem;">
-                        
-                            </p>
-                        </div>
+                    <div class="contact-cta">
+                        <a href="mailto:se@setaylorr.com" class="btn">Send a message ✦</a>
+                        <span style="display: block; margin-top: 10px; font-size: .75rem; color: var(--ink-soft); font-family: 'Spline Sans Mono', monospace;">
+                            I aim to respond within 48 hours.
+                        </span>
                     </div>
                 </section>
             </div>
@@ -1816,43 +1726,6 @@
                 empty.style.display = shown ? "none" : "block";
             });
         })();
-
-        // ----- Contact form – mailto fallback with validation -----
-        document.addEventListener('DOMContentLoaded', function() {
-            const form = document.getElementById('contactForm');
-            if (!form) return;
-
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-
-                const name = document.getElementById('contactName').value.trim();
-                const email = document.getElementById('contactEmail').value.trim();
-                const subject = document.getElementById('contactSubject').value.trim() || 'New contact message';
-                const message = document.getElementById('contactMessage').value.trim();
-
-                if (!name || !email || !message) {
-                    alert('Please fill in all required fields (name, email, and message).');
-                    return;
-                }
-
-                // Build mailto link
-                const body = `Name: ${name}%0AEmail: ${email}%0A%0A${message.replace(/\n/g, '%0A')}`;
-                const mailtoLink = `mailto:se@setaylorr.com?subject=${encodeURIComponent(subject)}&body=${body}`;
-
-                // Open default mail client
-                window.location.href = mailtoLink;
-
-                // Optional: show a thank-you message
-                const btn = form.querySelector('button[type="submit"]');
-                const originalText = btn.textContent;
-                btn.textContent = '✓ Sent!';
-                btn.disabled = true;
-                setTimeout(() => {
-                    btn.textContent = originalText;
-                    btn.disabled = false;
-                }, 3000);
-            });
-        });
     </script>
 </body>
 </html>

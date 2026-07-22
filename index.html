@@ -755,6 +755,64 @@
             padding: 6px 0;
             border-bottom: 1px dotted var(--line);
         }
+
+        /* full cv / recs specific */
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+            margin-top: 12px;
+        }
+        .skill-grid .skill-item {
+            background: var(--paper-raised);
+            padding: 10px 16px;
+            border: 1px solid var(--line);
+            border-radius: 4px;
+            font-family: 'Spline Sans Mono', monospace;
+            font-size: .75rem;
+            letter-spacing: .02em;
+        }
+
+        /* letter formatting */
+        .letter-body p {
+            margin-bottom: 16px;
+        }
+        .letter-body ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 12px 0 16px 0;
+        }
+        .letter-body ul li {
+            padding: 6px 0 6px 28px;
+            position: relative;
+        }
+        .letter-body ul li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--cinnabar);
+        }
+        .letter-body .signature {
+            margin-top: 24px;
+            font-family: 'Spline Sans Mono', monospace;
+            font-size: .85rem;
+            line-height: 1.6;
+        }
+        .letter-body .signature .name {
+            font-weight: 700;
+        }
+        .letter-body .signature .title {
+            color: var(--ink-soft);
+            font-size: .75rem;
+        }
+        .letter-body a {
+            color: var(--cinnabar);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+        .letter-body a:hover {
+            opacity: 0.7;
+        }
     </style>
 </head>
 <body>
@@ -772,7 +830,6 @@
                 <li><a href="#/writing" data-route="writing"><span class="ref">B/02</span>Writing</a></li>
                 <li><a href="#/projects" data-route="projects"><span class="ref">B/03</span>Projects</a></li>
                 <li><a href="#/cv" data-route="cv"><span class="ref">E/01</span>CV</a></li>
-                <li><a href="#/sahel" data-route="sahel"><span class="ref">B/04</span>Sahel Paper</a></li>
                 <li><a href="#/contact" data-route="contact"><span class="ref">E/02</span>Contact</a></li>
             </ul>
             <div class="nav-foot">
@@ -926,7 +983,7 @@
                 </section>
             </div>
 
-            <!-- ===== PROJECTS (now all cards link to dedicated pages) ===== -->
+            <!-- ===== PROJECTS ===== -->
             <div class="page" id="page-projects">
                 <header class="pagehead">
                     <div>
@@ -938,22 +995,19 @@
 
                 <section class="block">
                     <div class="projgrid">
-                        <!-- Cabinet Office disclosure case -->
                         <a class="proj" href="#/project-cabinet">
                             <span class="ref">FOI2023/11553</span>
                             <h3>Cabinet Office disclosure case</h3>
                             <p>Request for records of the 9 April 2022 Kyiv visit. Refused, upheld at internal review, escalated through the ICO and appealed to the First-tier Tribunal. Grounds of appeal prepared without representation. Exemptions engaged include ss.23, 24, 26, 27, 35, 38 and 40 FOIA.</p>
                             <span class="status">Status: tribunal stage</span>
                         </a>
-                        <!-- Russia-Ukraine chronology -->
                         <a class="proj" href="#/project-ru-ua">
                             <span class="ref">RU/UA 23-25</span>
                             <h3>Russia-Ukraine chronology</h3>
                             <p>Eighteen months of timeline reconstruction on Russia Ukraine diplomacy for Listening to the Other Side. Multilingual sourcing, verification and multimedia research outputs.</p>
                             <span class="status">Status: complete</span>
                         </a>
-                        <!-- Bridge Africa China -->
-                        <a class="proj" href="#/project-bac">
+                        <a class="proj" href="#/bridge-africa-china">
                             <span class="ref">BAC/01</span>
                             <h3>Bridge Africa China</h3>
                             <p>Founding a consulting and intelligence platform on Africa China institutional relations. Currently in identity and groundwork phase. See the dedicated file.</p>
@@ -1015,6 +1069,11 @@
                                 <span class="desc">Se is a fantastic researcher, and supportive colleague. She is extremely skilled at finding information, books, and websites, that you would otherwise spend hours scouring the internet for! Se guided me through the organization when I joined, and always went the extra mile to help others with their tasks. She has a brilliant knowledge on international relations and global conflicts.</span>
                             </span>
                         </div>
+                    </div>
+                    <!-- Buttons to full pages -->
+                    <div style="margin-top: 28px; display: flex; gap: 16px; flex-wrap: wrap;">
+                        <a href="#/full-cv" class="btn">View Full CV</a>
+                        <a href="#/full-recommendations" class="btn">View Full Recommendations</a>
                     </div>
                 </section>
             </div>
@@ -1192,14 +1251,14 @@
             </div>
 
             <!-- ============================================================ -->
-            <!-- DEDICATED PROJECT ARTICLES (3 new) -->
+            <!-- DEDICATED PROJECT ARTICLES (Cabinet & RU-UA) -->
             <!-- ============================================================ -->
 
             <!-- Project: Cabinet Office disclosure case -->
             <div class="page" id="page-project-cabinet">
                 <header class="pagehead">
                     <div>
-                        <div class="fileref">File C/01 / Case file</div>
+                        <div class="fileref">File C/02 / Case file</div>
                         <h1>Cabinet Office<br />disclosure case</h1>
                     </div>
                     <span class="stamp">FOI2023/11553</span>
@@ -1233,7 +1292,7 @@
             <div class="page" id="page-project-ru-ua">
                 <header class="pagehead">
                     <div>
-                        <div class="fileref">File C/02 / Research output</div>
+                        <div class="fileref">File C/03 / Research output</div>
                         <h1>Russia‑Ukraine<br />diplomatic chronology</h1>
                     </div>
                     <span class="stamp">RU/UA 23-25</span>
@@ -1259,38 +1318,51 @@
                 </section>
             </div>
 
-            <!-- Project: Bridge Africa China -->
-            <div class="page" id="page-project-bac">
+            <!-- ============================================================ -->
+            <!-- BRIDGE AFRICA CHINA -->
+            <!-- ============================================================ -->
+            <div class="page" id="page-bridge-africa-china">
                 <header class="pagehead">
                     <div>
-                        <div class="fileref">File C/03 / Venture</div>
-                        <h1>Bridge Africa China</h1>
+                        <div class="fileref">File B/03 / Venture</div>
+                        <h1>Bridge<br />Africa China</h1>
                     </div>
-                    <span class="stamp">BAC/01</span>
+                    <span class="stamp">Founding<br />document</span>
                 </header>
                 <a class="back-link" href="#/projects">← Back to projects</a>
+
                 <section class="block">
-                    <h2>Mission</h2>
-                    <p class="lede">A consulting and intelligence platform connecting African and Chinese institutions across policy, trade, and diplomacy.</p>
-                    <p>Bridge Africa China exists to close the analytical gap in one of the most consequential economic corridors of the coming decades. It provides rigorous, records‑based intelligence rather than sentiment in either direction.</p>
+                    <p class="lede">A consulting and intelligence platform connecting African and Chinese institutions across policy, trade and diplomacy.</p>
+                    <p class="muted">The premise is simple. The Africa China relationship is the most consequential economic corridor of the coming decades, and it is chronically under-analysed from the African side. Bridge Africa China exists to close that gap with rigorous, records-based intelligence rather than sentiment in either direction.</p>
                 </section>
+
                 <section class="block">
-                    <h2>Current phase</h2>
-                    <p>The venture is currently in its identity and groundwork phase, focused on mission clarity, initial research capacity, and network development.</p>
+                    <h2>Corridor</h2>
+                    <div class="map" role="img" aria-label="Stylised map placeholder showing a route between Johannesburg, Harare and Beijing">
+                        <svg class="route" viewBox="0 0 800 300" preserveAspectRatio="none" aria-hidden="true">
+                            <path d="M120,240 C 300,60 520,40 690,80" fill="none" stroke="var(--cinnabar)" stroke-width="2" stroke-dasharray="6 6"/>
+                            <circle cx="120" cy="240" r="5" fill="var(--archive-green)"/>
+                            <circle cx="330" cy="130" r="4" fill="var(--archive-green)"/>
+                            <circle cx="690" cy="80" r="5" fill="var(--archive-green)"/>
+                            <text x="132" y="244" class="node-label">JOHANNESBURG</text>
+                            <text x="342" y="134" class="node-label">HARARE</text>
+                            <text x="600" y="70" class="node-label">BEIJING</text>
+                        </svg>
+                        <span class="caption">Map placeholder / interactive corridor map planned</span>
+                    </div>
+                </section>
+
+                <section class="block">
+                    <h2>Build sequence</h2>
                     <ul class="timeline">
-                        <li><div class="when">Phase 1</div><div class="what">Identity and groundwork</div><div class="note">Mission, positioning, and foundational research capacity. Active.</div></li>
-                        <li><div class="when">Phase 2</div><div class="what">Intellectual authority</div><div class="note">Mandarin, business study, and a published body of Africa China analysis.</div></li>
-                        <li><div class="when">Phase 3</div><div class="what">Scale</div><div class="note">Client work across policy, trade, and diplomatic advisory.</div></li>
+                        <li><div class="when">Phase 1, current</div><div class="what">Identity and groundwork</div><div class="note">Mission, positioning and foundational research capacity.</div></li>
+                        <li><div class="when">Phase 2</div><div class="what">Intellectual authority</div><div class="note">Mandarin, business study and a published body of Africa China analysis.</div></li>
+                        <li><div class="when">Phase 3</div><div class="what">Scale</div><div class="note">Client work across policy, trade and diplomatic advisory.</div></li>
                     </ul>
-                </section>
-                <section class="block">
-                    <h2>Strategic vision</h2>
-                    <p>Bridge Africa China aims to become the primary independent source of intelligence on Africa‑China institutional relations, operating at the intersection of research, consultancy, and media.</p>
-                    <p>Long‑term goals include a paid subscription service, syndicated analysis, and a network of contributing analysts across the continent.</p>
                 </section>
             </div>
 
-            <!-- ===== SAHEL PAPER (existing) ===== -->
+            <!-- ===== SAHEL PAPER ===== -->
             <div class="page" id="page-sahel">
                 <header class="pagehead">
                     <div>
@@ -1336,6 +1408,112 @@
                 </section>
             </div>
 
+            <!-- ============================================================ -->
+            <!-- FULL CV PAGE -->
+            <!-- ============================================================ -->
+            <div class="page" id="page-full-cv">
+                <header class="pagehead">
+                    <div>
+                        <div class="fileref">File E/01 / Full Curriculum Vitae</div>
+                        <h1>Full CV</h1>
+                    </div>
+                    <span class="stamp">Extended<br />version</span>
+                </header>
+                <a class="back-link" href="#/cv">← Back to CV</a>
+
+                <section class="block">
+                    <h2>Experience</h2>
+                    <div class="cvrow"><span class="k">2025 – Present</span><span class="v"><strong>Founder, Bridge Africa China</strong><span class="sub">Building a consulting and intelligence platform on Africa China relations. Developing foundational research capacity, network building, and Mandarin language study.</span></span></div>
+                    <div class="cvrow"><span class="k">2023 – Present</span><span class="v"><strong>Administrator, Ntuli Foundation</strong><span class="sub">Board coordination, professional communications, and strategic drafting for a non-profit focused on institutional development.</span></span></div>
+                    <div class="cvrow"><span class="k">2023 – 2025</span><span class="v"><strong>Research Assistant, Listening to the Other Side</strong><span class="sub">Multilingual OSINT and chronology reconstruction of Russia Ukraine diplomatic negotiations. Produced interactive timelines and analytical reports for media and academic use.</span></span></div>
+                </section>
+
+                <section class="block">
+                    <h2>Casework</h2>
+                    <div class="cvrow"><span class="k">2023 – Present</span><span class="v"><strong>FOIA Request &amp; Tribunal Appeal</strong><span class="sub">Self‑represented progression through internal review, ICO complaint, and First‑tier Tribunal. Engaged with exemptions including ss.23, 24, 26, 27, 35, 38, and 40 FOIA.</span></span></div>
+                </section>
+
+                <section class="block">
+                    <h2>Education</h2>
+                    <div class="cvrow"><span class="k">2019 – 2023</span><span class="v"><strong>BA International Relations, Stellenbosch University</strong><span class="sub">Focus on institutional accountability, East‑West geopolitics, and international law.</span></span></div>
+                    <div class="cvrow"><span class="k">Ongoing</span><span class="v"><strong>Self‑directed Study</strong><span class="sub">Mandarin Chinese, China‑Africa economic history, and information rights law.</span></span></div>
+                </section>
+
+                <section class="block">
+                    <h2>Skills &amp; Expertise</h2>
+                    <div class="skill-grid">
+                        <div class="skill-item">OSINT &amp; Open Source Research</div>
+                        <div class="skill-item">Legal Research (FOIA / GDPR)</div>
+                        <div class="skill-item">Political Risk Analysis</div>
+                        <div class="skill-item">Multilingual Sourcing (RU, UK, FR)</div>
+                        <div class="skill-item">Chronology Construction</div>
+                        <div class="skill-item">Administrative Law</div>
+                        <div class="skill-item">Data Verification &amp; Cross‑referencing</div>
+                        <div class="skill-item">Mandarin Chinese (Beginner)</div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- ============================================================ -->
+            <!-- FULL RECOMMENDATIONS PAGE – now solely Edward Druce's letter -->
+            <!-- ============================================================ -->
+            <div class="page" id="page-full-recommendations">
+                <header class="pagehead">
+                    <div>
+                        <div class="fileref">File E/03 / Full Recommendation</div>
+                        <h1>Recommendation from<br />Edward M. Druce</h1>
+                    </div>
+                    <span class="stamp">Full letter</span>
+                </header>
+                <a class="back-link" href="#/cv">← Back to CV</a>
+
+                <section class="block letter-body">
+                    <p>
+                        In July 2023, I posted a job advert for a remote geopolitical research assistant, to help with a
+                        Substack covering diplomacy (<a href="https://edwardmdruce.substack.com/" target="_blank">edwardmdruce.substack.com</a>) that I’d begun writing.
+                        The advert received over 900 applicants in the space of a few weeks
+                        (<a href="https://edwardmdruce.substack.com/i/135764408/thoughts-from-around-the-world" target="_blank">read the post</a>), from all over the world.
+                        I whittled a shortlist down to 12 people and, from that, picked one person for the role: <strong>Se Taylor</strong>.
+                        It had been Se’s first ever job interview.
+                    </p>
+                    <p>
+                        Over the past 20 months, Se has been instrumental in helping:
+                    </p>
+                    <ul>
+                        <li>
+                            <strong>1) Put together a chronology of very little-known diplomatic talks between Russia and Ukraine</strong>
+                            that happened in April 2022.
+                            <a href="https://x.com/EdwardMDruce/status/1716485332378493256" target="_blank">This work</a>
+                            received praise from many world-leading academics.
+                        </li>
+                        <li>
+                            <strong>2) Se voice-overed (into English) an interview with former Israeli Prime Minister, Naftali Bennett</strong>,
+                            that has received over 125,000 views
+                            (<a href="https://twitter.com/EdwardMDruce/status/1728342410948759600" target="_blank">watch here</a>).
+                        </li>
+                        <li>
+                            <strong>3) And co-presented, on camera, founding principles for what we set out to do:</strong>
+                            <a href="https://listeningto.org/guiding-quotations/" target="_blank">listeningto.org/guiding-quotations</a>.
+                        </li>
+                    </ul>
+                    <p>
+                        Se is remarkably talented at finding obscure and hard-to-obtain information on the web. Se
+                        considers herself very much a “detective” in the pursuit of such information – which is fitting.
+                        Se has developed extremely novel ways of navigating foreign language media, that provides a very
+                        different (often much more accurate) picture of world events – which she came up with entirely
+                        independently.
+                    </p>
+                    <p>
+                        If you need a research “detective” to assist you in scouring the web, for little-known gems,
+                        I recommend Se highly.
+                    </p>
+                    <div class="signature">
+                        <div class="name">Edward M. Druce</div>
+                        <div class="title">Founder, Listening to the Other Side</div>
+                    </div>
+                </section>
+            </div>
+
             <!-- ===== CONTACT ===== -->
             <div class="page" id="page-contact">
                 <header class="pagehead">
@@ -1371,7 +1549,9 @@
             "home", "about", "writing", "projects", "cv", "sahel", "contact",
             "foi", "chronology",
             "zimbabwe", "foi-essay", "kyiv-record", "indonesia-nickel",
-            "project-cabinet", "project-ru-ua", "project-bac"
+            "project-cabinet", "project-ru-ua",
+            "bridge-africa-china",
+            "full-cv", "full-recommendations"
         ];
 
         function route() {

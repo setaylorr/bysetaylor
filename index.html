@@ -929,7 +929,6 @@
             line-height: 1.6;
         }
 
-        /* NEW MOTTO STYLES */
         .now-motto {
             display: flex;
             justify-content: space-between;
@@ -1066,6 +1065,150 @@
         [data-theme="dark"] .focus-tags span {
             background: var(--paper);
         }
+
+        /* About page specific styles – enhanced */
+        .about-question {
+            font-family: 'Fraunces', serif;
+            font-size: 2rem;
+            line-height: 1.2;
+            font-weight: 520;
+            max-width: 700px;
+            margin: 0 auto 12px auto;
+            text-align: center;
+        }
+        .about-question .highlight {
+            color: var(--cinnabar);
+            font-style: italic;
+        }
+        .about-intro {
+            text-align: center;
+            max-width: 620px;
+            margin: 0 auto 10px auto;
+            color: var(--ink-soft);
+            font-size: 1.05rem;
+        }
+
+        .about-hr {
+            border: 0;
+            height: 1px;
+            background: var(--line);
+            margin: 30px 0;
+            position: relative;
+        }
+        .about-hr::after {
+            content: "◆";
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            background: var(--paper);
+            padding: 0 12px;
+            color: var(--cinnabar);
+            font-size: .8rem;
+            opacity: 0.6;
+        }
+
+        .about-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px 14px;
+            margin: 16px 0 8px 0;
+        }
+        .about-tags .tag {
+            font-family: 'Spline Sans Mono', monospace;
+            font-size: .75rem;
+            color: var(--ink);
+            border: 1px solid var(--line);
+            padding: 4px 16px;
+            border-radius: 20px;
+            background: var(--paper-raised);
+            transition: border-color .2s, color .2s;
+        }
+        .about-tags .tag:hover {
+            border-color: var(--cinnabar);
+            color: var(--cinnabar);
+        }
+
+        .about-approach {
+            background: var(--paper-raised);
+            border: 1px solid var(--line);
+            border-radius: 4px;
+            padding: 28px 32px;
+            margin: 16px 0 0 0;
+            transition: border-color .2s;
+        }
+        .about-approach:hover {
+            border-color: var(--cinnabar);
+        }
+        .about-approach p {
+            color: var(--ink-soft);
+        }
+        .about-approach strong {
+            color: var(--ink);
+        }
+        .about-approach .emphasis {
+            color: var(--cinnabar);
+            font-weight: 600;
+            font-style: italic;
+        }
+        .about-approach-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 12px;
+            margin-top: 16px;
+        }
+        .about-approach-grid .item {
+            font-family: 'Spline Sans Mono', monospace;
+            font-size: .75rem;
+            background: var(--paper);
+            padding: 6px 12px;
+            text-align: center;
+            border: 1px solid var(--line);
+            border-radius: 4px;
+            color: var(--ink-soft);
+            transition: background .2s, border-color .2s, color .2s;
+        }
+        .about-approach-grid .item:hover {
+            background: var(--paper-raised);
+            border-color: var(--cinnabar);
+            color: var(--cinnabar);
+        }
+
+        .about-section-title {
+            font-family: 'Spline Sans Mono', monospace;
+            font-size: .65rem;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--cinnabar);
+            margin-bottom: 12px;
+            display: block;
+            text-align: center;
+        }
+
+        .about-body p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--ink-soft);
+            max-width: 680px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+        .about-body p strong {
+            color: var(--ink);
+        }
+
+        @media (max-width: 640px) {
+            .about-question {
+                font-size: 1.5rem;
+            }
+            .about-approach {
+                padding: 20px;
+            }
+            .about-approach-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1101,7 +1244,7 @@
                     <div class="hero-meta">
                         <div>Focus<strong>Africa China relations</strong></div>
                         <div>Method<strong>OSINT and records analysis</strong></div>
-        
+                        <div>Casework<strong>UK FOIA, tribunal stage</strong></div>
                     </div>
                     <div class="hero-stampwrap">
                         <span class="stamp" style="display:inline-block">Reviewed<br />2026</span>
@@ -1148,8 +1291,6 @@
                         <div class="now-body">
                             Research is the discipline of uncovering how institutions, ideas and interests shape political decisions long before their consequences become visible.
                         </div>
-                        
-                        <!-- NEW HORIZONTAL MOTTO -->
                         <div class="now-motto">
                             <span class="motto-text">Knowledge is <span class="highlight">Power</span></span>
                             <span class="motto-attribution">— <a href="#" onclick="event.preventDefault();">Francis Bacon</a></span>
@@ -1158,7 +1299,7 @@
                 </section>
             </div>
 
-            <!-- ===== ABOUT ===== -->
+            <!-- ===== ABOUT – COMPLETELY REDESIGNED ===== -->
             <div class="page" id="page-about">
                 <header class="pagehead">
                     <div>
@@ -1168,36 +1309,75 @@
                     <span class="stamp">Verified<br />record</span>
                 </header>
 
-                <section class="block">
-                    <p class="lede">I am a researcher trained in international relations, working at the intersection of institutional accountability, information rights and Africa China relations.</p>
-                    <p class="muted">My work starts from records. Diplomatic chronologies, disclosure requests, procurement trails and open sources in multiple languages. I am interested in what institutions write down, what they withhold, and what the gap between the two reveals about how power actually operates.</p>
-                    <p class="muted">I hold a BA in International Relations from Stellenbosch University and have worked as a research assistant on Russia Ukraine diplomatic history, as an administrator in the non-profit sector, and as an independent litigant in UK information rights proceedings.</p>
-                </section>
+                <section class="block about-body" style="border-bottom: none; padding-bottom: 0;">
+                    <!-- 1. The Question -->
+                    <div class="about-question">
+                        How does <span class="highlight">power</span> shape the world?
+                    </div>
+                    <p class="about-intro">
+                        I am an independent researcher with a background in International Relations, driven by that single, fundamental question.
+                    </p>
 
-                <section class="block">
-                    <h2>Timeline</h2>
-                    <ul class="timeline">
-                        <li>
-                            <div class="when">2025 to present</div>
-                            <div class="what">Founder, Bridge Africa China</div>
-                            <div class="note">Early-stage consulting and intelligence platform on African and Chinese institutional relations.</div>
-                        </li>
-                        <li>
-                            <div class="when">2023 to present</div>
-                            <div class="what">FOIA casework, Cabinet Office</div>
-                            <div class="note">Request, internal review, ICO complaint and First-tier Tribunal appeal, prepared without legal representation.</div>
-                        </li>
-                        <li>
-                            <div class="when">2023 to 2025</div>
-                            <div class="what">Research assistant, Listening to the Other Side</div>
-                            <div class="note">Russia Ukraine diplomatic chronologies, multilingual OSINT and multimedia research outputs for Edward M. Druce.</div>
-                        </li>
-                        <li>
-                            <div class="when">2019 to 2023</div>
-                            <div class="what">BA International Relations, Stellenbosch University</div>
-                            <div class="note">Focus on institutional accountability, transparency and East West geopolitical perspectives.</div>
-                        </li>
-                    </ul>
+                    <hr class="about-hr" />
+
+                    <!-- 2. The Journey -->
+                    <p>
+                        That question has taken me in many directions—from Africa–China relations and political economy to diplomacy, conflict, institutional accountability and the changing international order. Regardless of the subject, my work is rooted in the same belief: understanding the world requires looking beyond headlines and into the institutions, relationships and decisions that shape them.
+                    </p>
+
+                    <!-- 3. The Focus Areas -->
+                    <div style="margin: 20px 0 10px 0;">
+                        <span class="about-section-title">Fields of inquiry</span>
+                        <div class="about-tags">
+                            <span class="tag">Africa–China relations</span>
+                            <span class="tag">Political economy</span>
+                            <span class="tag">Diplomacy</span>
+                            <span class="tag">Conflict analysis</span>
+                            <span class="tag">Institutional accountability</span>
+                            <span class="tag">International order</span>
+                        </div>
+                    </div>
+
+                    <hr class="about-hr" />
+
+                    <!-- 4. The Approach -->
+                    <div class="about-approach">
+                        <p style="font-size: 1.1rem; max-width: 100%;">
+                            I work primarily with <strong class="emphasis">records</strong>.
+                        </p>
+                        <p>
+                            Government documents, diplomatic correspondence, policy papers, open-source material and historical archives are often where the most interesting stories begin. I am interested not only in what institutions choose to make public, but also in what they omit, and what those silences reveal about power, incentives and decision-making.
+                        </p>
+                        <div class="about-approach-grid">
+                            <span class="item">Government documents</span>
+                            <span class="item">Diplomatic correspondence</span>
+                            <span class="item">Policy papers</span>
+                            <span class="item">Open-source material</span>
+                            <span class="item">Historical archives</span>
+                            <span class="item">Records &amp; silences</span>
+                        </div>
+                    </div>
+
+                    <hr class="about-hr" />
+
+                    <!-- 5. The Background -->
+                    <div style="margin: 10px 0;">
+                        <p>
+                            I hold a BA in International Relations from Stellenbosch University. My experience includes research on Russia–Ukraine diplomacy, independent UK Freedom of Information litigation, and the study of Africa–China relations, political economy and global affairs. I am also studying Mandarin as part of a broader commitment to understanding China through its language, history and institutions.
+                        </p>
+                    </div>
+
+                    <hr class="about-hr" />
+
+                    <!-- 6. The Present -->
+                    <div style="margin: 10px 0 0 0;">
+                        <p style="font-size: 1.05rem; max-width: 680px; margin-left: auto; margin-right: auto; text-align: center;">
+                            I am currently building <strong style="color: var(--cinnabar);">Bridge Africa China</strong>, an independent research and intelligence platform exploring the political, economic and institutional relationships between Africa and China.
+                        </p>
+                        <p style="font-size: 1.05rem; max-width: 680px; margin-left: auto; margin-right: auto; text-align: center; margin-top: 8px;">
+                            More broadly, my work seeks to understand how power moves across borders, how institutions shape outcomes, and how careful research can make sense of an increasingly complex world.
+                        </p>
+                    </div>
                 </section>
             </div>
 
@@ -1866,7 +2046,7 @@
                             </div>
                         </div>
 
-                        <!-- Column 2: Professional, Time Zone, Casework -->
+                        <!-- Column 2: Professional, Time Zone -->
                         <div>
                             <div class="contact-item">
                                 <span class="contact-icon">🔗</span>
@@ -1893,7 +2073,7 @@
 
                     <!-- Centered CTA -->
                     <div class="contact-cta">
-                        <a href="mailto:se@setaylorr.com" class="btn">If you're intrigued, come say hi.</a>
+                        <a href="mailto:se@setaylorr.com" class="btn">If you're intrigued, come say hi. ✦</a>
                     </div>
                 </section>
             </div>

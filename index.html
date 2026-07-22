@@ -951,15 +951,15 @@
         <nav class="index" aria-label="Site index">
             <div class="brand">
                 <div class="name">Se Taylor</div>
-                <div class="role">Geopolitical research</div>
+                <div class="role">Geopolitical researcher</div>
             </div>
             <ul class="navlist" id="nav">
-                <li><a href="#/home" data-route="home"><span class="ref">A/01</span>Home</a></li>
-                <li><a href="#/about" data-route="about"><span class="ref">A/02</span>About</a></li>
-                <li><a href="#/writing" data-route="writing"><span class="ref">B/02</span>Writing</a></li>
-                <li><a href="#/projects" data-route="projects"><span class="ref">B/03</span>Projects</a></li>
-                <li><a href="#/cv" data-route="cv"><span class="ref">E/01</span>CV</a></li>
-                <li><a href="#/contact" data-route="contact"><span class="ref">E/02</span>Contact</a></li>
+                <li><a href="#/home" data-route="home"><span class="ref">►</span>Home</a></li>
+                <li><a href="#/about" data-route="about"><span class="ref">►</span>About</a></li>
+                <li><a href="#/writing" data-route="writing"><span class="ref">►</span>Writing</a></li>
+                <li><a href="#/projects" data-route="projects"><span class="ref">►</span>Projects</a></li>
+                <li><a href="#/cv" data-route="cv"><span class="ref">►</span>CV</a></li>
+                <li><a href="#/contact" data-route="contact"><span class="ref">►</span>Contact</a></li>
             </ul>
             <div class="nav-foot">
                 <button class="toggle" id="themeToggle" aria-pressed="false">Theme: Light</button>
@@ -972,7 +972,7 @@
             <!-- ===== HOME ===== -->
             <div class="page" id="page-home">
                 <header class="hero">
-                    <div class="fileref">Registry / Personal file / Open access</div>
+                  
                     <h1>studying<br />power,<br /><span class="accent">people</span><br />and conflicts</h1>
                     <p class="sub">Independent researcher working on institutional transparency, open source investigation and the political economy of Africa China relations. Based in Johannesburg.</p>
                     <div class="hero-meta">
@@ -1138,7 +1138,7 @@
                         </a>
                         <a class="proj" href="#/bridge-africa-china">
                             <span class="ref">BAC/01</span>
-                            <h3>Bridge Africa China</h3>
+                            <h3>Bridge Africa-China</h3>
                             <p>Founding a consulting and intelligence platform on Africa China institutional relations. Currently in identity and groundwork phase. See the dedicated file.</p>
                             <span class="status">Status: early stage</span>
                         </a>
@@ -1395,7 +1395,7 @@
                 <a class="back-link" href="#/projects">← Back to projects</a>
                 <section class="block">
                     <h2>Request</h2>
-                    <p class="lede">A request for records of the 9 April 2022 Kyiv visit, submitted under the Freedom of Information Act 2000.</p>
+                    <p class="lede">Submitted a Freedom of Information request to the Cabinet Office seeking records relating to the Prime Minister's visit to Kyiv on 9 April 2022. The request was refused under sections 23, 24, 26, 27, 35, 38, and 40 of the Freedom of Information Act 2000.</p>
                     <p>The request sought any communications, briefing materials, or situational reports prepared for or generated during the visit. The Cabinet Office refused the request in full, citing a broad range of exemptions.</p>
                 </section>
                 <section class="block">
@@ -1687,17 +1687,29 @@
                                 </div>
                             </div>
                             <div class="contact-item">
-                                <span class="contact-icon">🔗</span>
-                                <div>
-                                    <div class="contact-label">Professional</div>
-                                    <div style="display:flex; gap:16px; flex-wrap:wrap; margin-top:4px;">
-                                        <a href="#" style="border-bottom:1px solid var(--line);">LinkedIn</a>
-                                        <a href="#" style="border-bottom:1px solid var(--line);">Twitter</a>
-                                        <a href="#" style="border-bottom:1px solid var(--line);">GitHub</a>
-                                    </div>
-                                </div>
-                            </div>
-
+  <div class="contact-item">
+    <span class="contact-icon">🔗</span>
+    <div>
+        <div class="contact-label">Professional</div>
+        <div style="display:flex; gap:16px; flex-wrap:wrap; margin-top:4px;">
+            <a href="javascript:void(0)" 
+               onclick="window.open('about:blank', '_blank').location.href='https://linkedin.com/in/se-taylor-32a366285'; return false;" 
+               style="border-bottom:1px solid var(--line); cursor:pointer;">
+                LinkedIn
+            </a>
+            <a href="javascript:void(0)" 
+               onclick="window.open('about:blank', '_blank').location.href='https://twitter.com/yourhandle'; return false;" 
+               style="border-bottom:1px solid var(--line); cursor:pointer;">
+                Twitter
+            </a>
+            <a href="javascript:void(0)" 
+               onclick="window.open('about:blank', '_blank').location.href='https://github.com/yourusername'; return false;" 
+               style="border-bottom:1px solid var(--line); cursor:pointer;">
+                GitHub
+            </a>
+        </div>
+    </div>
+</div>
                             <!-- mini map -->
                             <div class="mini-map" role="img" aria-label="Stylised location map of Johannesburg">
                                 <svg viewBox="0 0 200 120" style="width:100%; height:auto;">
@@ -1715,7 +1727,7 @@
                         <!-- right column: contact form -->
                         <div class="contact-form-wrapper">
                             <h3 style="font-family:'Fraunces',serif; font-weight:560; font-size:1.3rem; margin-bottom:4px;">Send a message</h3>
-                            <p class="muted small" style="margin-bottom:18px;">I'll get back to you within two working days.</p>
+                            <p class="muted small" style="margin-bottom:18px;"></p>
                             <form id="contactForm" action="#" method="POST">
                                 <div class="form-group">
                                     <label for="contactName">Your name</label>
@@ -1736,7 +1748,7 @@
                                 <button type="submit" class="btn btn-primary">Send message →</button>
                             </form>
                             <p class="small muted" style="margin-top:12px; font-family:'Spline Sans Mono',monospace; font-size:.65rem;">
-                                ⚡ No tracking, no spam – your data stays private.
+                        
                             </p>
                         </div>
                     </div>
@@ -1745,8 +1757,8 @@
 
             <!-- ===== FOOTER ===== -->
             <footer>
-                <span>Se Taylor / Registry of work</span>
-                <span>Compiled 2026 / All records open unless noted</span>
+                <span>Se Taylor / Portfolio</span>
+                <span>Compiled 2026</span>
             </footer>
 
         </main>
